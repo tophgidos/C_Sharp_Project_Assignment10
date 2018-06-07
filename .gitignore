@@ -1,0 +1,7 @@
+
+*.ide-wal
+*.ide-shm
+*.ide
+*.lock
+.vs/Employees/v15/.suo
+.vs/Employees/DesignTimeBuild/.dtbcache
