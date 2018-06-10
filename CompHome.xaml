@@ -29,7 +29,26 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Button Content="Add Employee" Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Height="Auto" Click="AddEmployee_Click" />
+            <Button Content="Add Employee" Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Height="Auto" Click="AddEmployee_Click" Grid.ColumnSpan="2" Margin="0,9.6,18.4,0.2" />
+        </Grid>
+
+        <!-- Remove employees button -->
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="120" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Button Content="Remove Employee" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,36.2,19.4,-35.4" Width="122" Grid.Row="1" Grid.ColumnSpan="2" >
+                <Button.CommandBindings>
+                    <CommandBinding Command="Save" 
+                              Executed="RemoveEmp_Executed" CanExecute="Button_CanExecute"/>
+                </Button.CommandBindings>
+            </Button>
         </Grid>
 
         <!-- Employees grid -->
@@ -43,6 +62,18 @@
 
             <!-- Employees label -->
             <Label Grid.Row="0" Style="{StaticResource headerTextStyle}" Height="35" Margin="0,0,0,5" Content="Employees" />
+
+            <!-- Employee name search box -->
+            <!--<TextBox Name="SearchTextBox" Style="{StaticResource textBoxStyle}"
+                     Text="{Binding Search}" MaxLength="15" Margin="107,0,0,7.6" />-->
+
+            <!-- Employeen name search clear button --><!--
+            <Button Content="X" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,0,0.8,7.6" Width="23" >
+                <Button.CommandBindings>
+                    <CommandBinding Command="Save" 
+                              Executed="Clear_Executed" CanExecute="Button_CanExecute"/>
+                </Button.CommandBindings>
+            </Button>-->
 
             <!-- Employee radio buttons -->
             <ListBox Name="EmployeeTypeRadioButtons" Style="{StaticResource HorizontalRadioList}" Grid.Row="1">

@@ -69,10 +69,21 @@ namespace Employees
             this.NavigationService.Navigate(new CompAddEmployee(this, empList));
         }
 
+        // Handle Rmove employee button click
+        private void RemoveEmp_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            RemoveEmp();
+        }
+
         // Handle changes to Employee type radio buttons
         private void EmployeeTypeRadioButtons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshEmployeeList();
+        }
+
+        public void RemoveEmp()
+        {
+            empList.Remove((Employee)this.dgEmps.SelectedItem);
         }
 
         // Filter Employee list according to radio button setting
