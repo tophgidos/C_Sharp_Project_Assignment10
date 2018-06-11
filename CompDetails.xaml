@@ -19,6 +19,39 @@
         <!-- Put watermark in top left corner of outer grid -->
         <Image Style="{StaticResource WatermarkImage}" Height="156" Grid.RowSpan="3" Width="181" Grid.ColumnSpan="1" />
 
+        <!-- Promotion button -->
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="120" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Button Content="Promotion" Grid.Column="0" Grid.Row="1" Style="{StaticResource buttonStyle}" Height="Auto" Click="Promotion_Click" Grid.ColumnSpan="2" Margin="0,9.6,18.4,0.2" />
+        </Grid>
+
+        <!-- Bonus button -->
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="120" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Button Content="Bonus" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,36.2,19.4,-35.4" Width="123" Grid.Row="1" Grid.ColumnSpan="2" >
+                <Button.CommandBindings>
+                    <CommandBinding Command="Save" 
+                              Executed="Bonus_Click" />
+                </Button.CommandBindings>
+            </Button>
+        </Grid>
+
         <!-- Employee details in second column of outer grid -->
         <Grid Grid.Column="1" >
             <Grid.ColumnDefinitions>
@@ -69,5 +102,7 @@
             <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" />
             <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="9" Style="{StaticResource labelStyle}" />
         </Grid>
+        
+        <TextBox x:Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" Text="$500.00" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 
 namespace Employees
 {
@@ -10,6 +11,8 @@ namespace Employees
             InitializeComponent();
         }
 
+        Employee emp;
+
         // Custom constructor to pass Employee object
         public CompDetails(object data) : this()
         {
@@ -18,7 +21,7 @@ namespace Employees
 
             if (data is Employee)
             {
-                Employee emp = (Employee)data;
+                emp = (Employee)data;
 
                 string name1 = "";
                 string value1 = "";
@@ -35,5 +38,19 @@ namespace Employees
             }
         }
         #endregion
+
+        float b;
+
+        private void Bonus_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+            b = float.Parse(BonusInput.Text);
+            this.emp.GiveBonus(b);
+        }
+
+        private void Promotion_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.emp.GivePromotion();
+        }
     }
 }

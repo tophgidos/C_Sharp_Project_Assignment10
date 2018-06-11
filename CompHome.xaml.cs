@@ -72,18 +72,25 @@ namespace Employees
         // Handle Rmove employee button click
         private void RemoveEmp_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            RemoveEmp();
+            empList.Remove((Employee)this.dgEmps.SelectedItem);
+            RefreshEmployeeList();
         }
 
+        // Handle Analytics button click
+        //private void Analytics_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.NavigationService.Navigate(new CompAnalytics(this, empList));
+        //}
+
+        // Handle X search button click
+        //private void ClearSearch_Executed(object sender, ExecutedRoutedEventArgs e)
+        //{
+
+        //}
         // Handle changes to Employee type radio buttons
         private void EmployeeTypeRadioButtons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshEmployeeList();
-        }
-
-        public void RemoveEmp()
-        {
-            empList.Remove((Employee)this.dgEmps.SelectedItem);
         }
 
         // Filter Employee list according to radio button setting
