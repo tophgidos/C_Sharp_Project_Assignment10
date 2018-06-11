@@ -27,6 +27,7 @@ namespace Employees
         public DateTime DateOfBirth { get { return empDOB; } }
         public string SocialSecurityNumber { get { return empSSN; } }
         public virtual string Role { get { return GetType().ToString().Substring(NamespaceLength); } }
+        public float BonusInput { get; set; }
         #endregion
 
         #region Constructors
