@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Employees
 {
@@ -12,6 +16,8 @@ namespace Employees
         }
 
         Employee emp;
+
+        
 
         // Custom constructor to pass Employee object
         public CompDetails(object data) : this()
@@ -39,18 +45,19 @@ namespace Employees
         }
         #endregion
 
-        float b;
+       
 
         private void Bonus_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 
-            b = float.Parse(BonusInput.Text);
+            float b = float.Parse(BonusInput.Text);
             this.emp.GiveBonus(b);
         }
 
         private void Promotion_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.emp.GivePromotion();
+            Items.Refresh();
         }
     }
 }
