@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Text.RegularExpressions;
 
 namespace Employees
 {
@@ -82,11 +83,19 @@ namespace Employees
         //    this.NavigationService.Navigate(new CompAnalytics(this, empList));
         //}
 
-        // Handle X search button click
-        //private void ClearSearch_Executed(object sender, ExecutedRoutedEventArgs e)
-        //{
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshEmployeeList();
+        }
 
-        //}
+        // Handle X search button click
+        private void ClearSearch_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.SearchTextBox.Text = "";
+            RefreshEmployeeList();
+        }
+
+
         // Handle changes to Employee type radio buttons
         private void EmployeeTypeRadioButtons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -120,6 +129,13 @@ namespace Employees
                 default: empList1 = empList;
                     break;
             }
+
+            if(this.SearchTextBox.Text != "")
+            {
+                string searchText = "(?i)"+this.SearchTextBox.Text;
+                empList1 = empList1.FindAll(obj => (Regex.IsMatch(((Employee)obj).FirstName, searchText) || Regex.IsMatch(((Employee)obj).LastName, searchText)));
+            }
+
 
             dgEmps.ItemsSource = new ObservableCollection<Employee>(empList1);
 

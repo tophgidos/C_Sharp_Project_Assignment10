@@ -78,16 +78,16 @@
             <Label Grid.Row="0" Style="{StaticResource headerTextStyle}" Height="35" Margin="0,0,0,5" Content="Employees" />
 
             <!-- Employee name search box -->
-            <!--<TextBox Name="SearchTextBox" Style="{StaticResource textBoxStyle}"
-                     Text="{Binding Search}" MaxLength="15" Margin="107,0,0,7.6" TextChanged="SearchTextBox_TextChanged" />-->
+            <TextBox Name="SearchTextBox" Style="{StaticResource textBoxStyle}"
+                     Text="{Binding Search}" MaxLength="15" Margin="107,0,0,7.6" TextChanged="SearchTextBox_TextChanged" />
 
             <!--Employeen name search clear button-->
-            <!--<Button Content="X" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,0,0.8,7.6" Width="23" >
+            <Button Content="X" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,0,0.8,7.6" Width="23" >
                 <Button.CommandBindings>
                     <CommandBinding Command="Save" 
-                              Executed="ClearSearch_Executed" CanExecute="Button_CanExecute"/>
+                              Executed="ClearSearch_Executed"/>
                 </Button.CommandBindings>
-            </Button>-->
+            </Button>
 
             <!-- Employee radio buttons -->
             <ListBox Name="EmployeeTypeRadioButtons" Style="{StaticResource HorizontalRadioList}" Grid.Row="1">
