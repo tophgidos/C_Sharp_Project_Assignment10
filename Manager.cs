@@ -69,6 +69,30 @@ namespace Employees
             GiveBonus(600);
         }
 
+        public virtual bool CanAddReport(Employee emp)
+        {
+            // Local to hold error string, if found
+            string errorString = null;
+
+            // Check number of reports
+            if (_reports.Count >= MaxReports)
+                errorString = string.Format("Manager already has {0} reports.", MaxReports);
+            else if (_reports.IndexOf(emp) >= 0)
+                errorString = "Employee already reports to manager";
+            else if (this == emp)
+                errorString = "Manager can not report to himself/herself";
+
+            // Create an exception if we found an error
+            if (errorString != null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         // Methods for adding/removing reports
         public virtual void AddReport(Employee newReport)
         {

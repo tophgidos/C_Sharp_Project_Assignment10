@@ -51,8 +51,27 @@ namespace Employees
             StockOptions += 10000;
         }
 
-		// Methods for adding reports
-		public override void AddReport(Employee newReport)
+        public override bool CanAddReport(Employee emp)
+        {
+            // Check for proper report to Executive
+            if (emp is Manager || emp is SalesPerson)
+            {
+                if(!base.CanAddReport(emp))
+                {
+                    return false;
+                }
+                else
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        // Methods for adding reports
+        public override void AddReport(Employee newReport)
         {
             // Check for proper report to Executive
             if (newReport is Manager || newReport is SalesPerson)
