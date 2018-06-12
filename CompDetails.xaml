@@ -69,6 +69,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <!-- Employee Details title in first column, first row -->
@@ -96,11 +98,14 @@
             <Label Content="Benefits:" Grid.Column="0" Grid.Row="7" Style="{StaticResource labelStyle}" />
             <Label Content="{Binding Benefits}" Grid.Column="1" Grid.Row="7" Style="{StaticResource labelStyle}" />
 
-            <Label Name="SpareProp1Name" Content="Spare1" Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" />
-            <Label Name="SpareProp1Value" Content="Value1" Grid.Column="1" Grid.Row="8" Style="{StaticResource labelStyle}"  />
+            <Label Content="Pay:" Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" />
+            <Label Content="{Binding Pay}" Grid.Column="1" Grid.Row="8" Style="{StaticResource labelStyle}" />
 
-            <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" />
-            <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="9" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp1Name" Content="Spare1" Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp1Value" Content="Value1" Grid.Column="1" Grid.Row="9" Style="{StaticResource labelStyle}"  />
+
+            <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="10" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="10" Style="{StaticResource labelStyle}" />
         </Grid>
         
         <TextBox Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" Text="$500.00" VerticalAlignment="Top" Width="120"/>

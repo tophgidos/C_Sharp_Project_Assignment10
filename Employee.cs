@@ -68,7 +68,7 @@ namespace Employees
             Console.WriteLine("Role: {0}", Role);
             Console.WriteLine("Age: {0}", Age);
             Console.WriteLine("DOB: {0}", DateOfBirth);
-            Console.WriteLine("Pay: {0:C}", Pay);
+            Console.WriteLine("Pay: {0:c}", Pay);
             Console.WriteLine("SSN: {0}", SocialSecurityNumber);
             Console.WriteLine("Benefits: {0}", Benefits);
         }

@@ -57,7 +57,7 @@ namespace Employees
         private void Promotion_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.emp.GivePromotion();
-            Items.Refresh();
+            
         }
     }
 }
