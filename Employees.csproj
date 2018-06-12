@@ -68,6 +68,7 @@
       <DependentUpon>CompHome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Expense.cs" />
+    <Compile Include="INotifyPropertyChanged.cs" />
     <Compile Include="PTSalesPerson.cs" />
     <Compile Include="SalesPerson.cs" />
     <Compile Include="SupportPerson.cs" />

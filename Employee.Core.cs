@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace Employees
 {
     [Serializable]
-    public partial class Employee
+    public partial class Employee : INotifyPropertyChanged
     {
         #region Data members and Properties
         private string empFirstName;
@@ -18,16 +21,25 @@ namespace Employees
 
         public static int NamespaceLength = 10;
         public List<Expense> Expenses = new List<Expense>();
+
+     
+
         public string Name { get { return string.Format($"{empFirstName} {empLastName}"); } }
         public string FirstName { get { return empFirstName; } }
         public string LastName { get { return empLastName; } }
         public int Id { get { return empID; } }
-        public float Pay { get { return currPay; } }
+        public float Pay { get { return currPay; } set
+            {
+                if (value == currPay) return;
+                currPay = value;
+                OnPropertyChanged();
+            } }
         public int Age { get { return (DateTime.Now.Year - empDOB.Year); } }
         public DateTime DateOfBirth { get { return empDOB; } }
         public string SocialSecurityNumber { get { return empSSN; } }
         public virtual string Role { get { return GetType().ToString().Substring(NamespaceLength); } }
         public float BonusInput { get; set; }
+        public object SelectedItem { get; internal set; }
         #endregion
 
         #region Constructors
@@ -52,5 +64,12 @@ namespace Employees
         }
         //test comment
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        internal void OnPropertyChanged ([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
