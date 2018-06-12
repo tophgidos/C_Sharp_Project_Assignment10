@@ -47,7 +47,7 @@
             <Button Content="Bonus" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,36.2,19.4,-35.4" Width="123" Grid.Row="1" Grid.ColumnSpan="2" >
                 <Button.CommandBindings>
                     <CommandBinding Command="Save" 
-                              Executed="Bonus_Click" />
+                              Executed="Bonus_Click" CanExecute="Bonus_CanExecute"/>
                 </Button.CommandBindings>
             </Button>
         </Grid>
@@ -108,6 +108,6 @@
             <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="10" Style="{StaticResource labelStyle}" />
         </Grid>
         
-        <TextBox Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" Text="$500.00" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text = "{Binding BonusAmount, StringFormat = C}"/>
     </Grid>
 </Page>

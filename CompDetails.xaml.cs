@@ -5,6 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using System.Reflection;
+using System.Collections;
+using System.ComponentModel;
+
 
 namespace Employees
 {
@@ -18,13 +22,14 @@ namespace Employees
 
         Employee emp;
 
-        
+        public float BonusAmount { get; set; } = 500;
 
         // Custom constructor to pass Employee object
         public CompDetails(object data) : this()
         {
             // Bind context to Employee
             this.DataContext = data;
+            BonusInput.DataContext = this;
 
             if (data is Employee)
             {
@@ -46,28 +51,27 @@ namespace Employees
         }
         #endregion
 
-       
+
+        #region Methods
 
         private void Bonus_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
-            float b = float.Parse(BonusInput.Text);
-            this.emp.GiveBonus(b);
-            //refresh page
-            Refresh_Page();
+           this.emp.GiveBonus(BonusAmount);
+           //refresh page
+           Refresh_Page();
         }
 
         
-        private void Bonus_CanExecute(object sender, System.Windows.RoutedEventArgs e)
+        private void Bonus_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            
+            e.CanExecute = BonusAmount <= 10000 && BonusAmount >= 500;
             
         }
 
         private void Promotion_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.emp.GivePromotion();
 
+            this.emp.GivePromotion();
             //refresh page
             Refresh_Page();
             
@@ -92,6 +96,12 @@ namespace Employees
             SpareProp1Value.Content = value1;
             SpareProp2Name.Content = name2;
             SpareProp2Value.Content = value2;
+        }
+        #endregion
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
         }
     }
 }
