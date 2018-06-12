@@ -36,6 +36,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <!-- Employee Details title in first column, first row -->
@@ -63,11 +64,28 @@
             <Label Content="Benefits:" Grid.Column="0" Grid.Row="7" Style="{StaticResource labelStyle}" />
             <Label Content="{Binding Benefits}" Grid.Column="1" Grid.Row="7" Style="{StaticResource labelStyle}" />
 
-            <Label Name="SpareProp1Name" Content="Spare1" Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" />
-            <Label Name="SpareProp1Value" Content="Value1" Grid.Column="1" Grid.Row="8" Style="{StaticResource labelStyle}"  />
+            <Label Content="Pay:" Grid.Column="0" Grid.Row="8" Style="{StaticResource labelStyle}" />
+            <Label Content="{Binding Pay}" Grid.Column="1" Grid.Row="8" Style="{StaticResource labelStyle}" />
 
-            <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" />
-            <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="9" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp1Name" Content="Spare1" Grid.Column="0" Grid.Row="9" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp1Value" Content="Value1" Grid.Column="1" Grid.Row="9" Style="{StaticResource labelStyle}"  />
+
+            <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="10" Style="{StaticResource labelStyle}" />
+            <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="10" Style="{StaticResource labelStyle}" />
         </Grid>
+        <Button Content="bonus" Name = "bonus" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,126,10,124.333" >
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" 
+                            Executed="Give_Bonus" CanExecute="Bonus_Button_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="$500-$10,000" VerticalAlignment="Top" Width="125" Margin="15,147,0,0"/>
+        <Button Content="Promotion" Style="{StaticResource buttonStyle}" Height="Auto" Command="Save" Margin="0,100,10,150.333" >
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" 
+                    Executed="Expenses_Executed" CanExecute="Button_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
+
     </Grid>
 </Page>

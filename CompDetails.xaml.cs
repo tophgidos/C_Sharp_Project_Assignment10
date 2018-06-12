@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Employees
 {
@@ -35,5 +36,11 @@ namespace Employees
             }
         }
         #endregion
+        //Method to execute when bonus button is clicked
+        private void Give_Bonus(object sender, RoutedEventArgs e)
+        {
+            //I'm thinking this is similar to the expenses execute, but I'm not sure
+            //this.NavigationService.Navigate());
+        }
     }
 }

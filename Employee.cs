@@ -42,7 +42,9 @@ namespace Employees
         public BenefitPackage Benefits
         {
             get { return empBenefits; }
+                    
         }
+
         #endregion
 
         #region Class methods 
@@ -57,6 +59,7 @@ namespace Employees
                 empBenefits = new GoldBenefitPackage();
             else if (empBenefits is GoldBenefitPackage)
                 empBenefits = new PlatinumBenefitPackage();
+            
         }
 
         // Console display
