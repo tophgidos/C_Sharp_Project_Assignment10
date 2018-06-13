@@ -21,6 +21,8 @@ namespace Employees
         }
 
         Employee emp;
+        List<Employee> ValidEmps = new List<Employee>();
+        List<string> empNames = new List<string>();
 
         public float BonusAmount { get; set; } = 500;
 
@@ -47,12 +49,67 @@ namespace Employees
                 SpareProp1Value.Content = value1;
                 SpareProp2Name.Content = name2;
                 SpareProp2Value.Content = value2;
+
+                /*if (!(emp is Manager))
+                                    {
+                    emp.SpareDetailProp2(ref name2, ref value2);
+                    reports.Visibility = Visibility.Collapsed;
+                    RemoveReportsButton.Visibility = Visibility.Collapsed;
+                    AddReportsButton.Visibility = Visibility.Collapsed;
+                    EmpsComboBox.Visibility = Visibility.Collapsed;
+                                    }
+                               else
+                {
+                    
+                    name2 = "Reports:";
+                    RemoveReportsButton.Visibility = Visibility.Visible;
+                    reports.Visibility = Visibility.Visible;
+                    AddReportsButton.Visibility = Visibility.Visible;
+                    EmpsComboBox.Visibility = Visibility.Visible;
+                    
+                    reports.ItemsSource = (Manager)emp;
+                    
+                                        //set equal to employee list
+                                        EmployeeList empList1 = ;
+
+                    foreach (Employee tempEmp in empList1)
+                    {
+                        if(((Manager)emp).CanAddReport(tempEmp) == true)
+                        { 
+                            ValidEmps.Add(tempEmp);
+                            empNames.Add(tempEmp.Name);
+                        }
+                    }
+                    
+                    EmpsComboBox.ItemsSource = empNames;
+                                    }*/
             }
         }
         #endregion
 
 
         #region Methods
+        /*private void RemoveReport_Executed(object sender, RoutedEventArgs e)
+        {
+            (Manager)emp).RemoveReport((Employee)reports.SelectedItem);
+            reports.Items.Refresh();
+        }*/
+
+        /*private void RemoveReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = reports.SelectedIndex >= 0;
+        }
+
+        private void AddReport_Executed(object sender, RoutedEventArgs e)
+        {
+            ((Manager)emp).AddReport(ValidEmps[EmpsComboBox.SelectedIndex]);
+            reports.Items.Refresh();
+        }
+
+        private void AddReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = EmpsComboBox.SelectedIndex >= 0;
+        }*/
 
         private void Bonus_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -97,11 +154,13 @@ namespace Employees
             SpareProp2Name.Content = name2;
             SpareProp2Value.Content = value2;
         }
+
+        /*private void AddReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = EmpsComboBox.SelectedIndex >= 0;
+        }*/
         #endregion
 
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
 
-        }
     }
 }

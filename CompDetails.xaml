@@ -57,8 +57,10 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -106,8 +108,48 @@
 
             <Label Name="SpareProp2Name" Content="Spare2" Grid.Column="0" Grid.Row="10" Style="{StaticResource labelStyle}" />
             <Label Name="SpareProp2Value" Content="Value2" Grid.Column="1" Grid.Row="10" Style="{StaticResource labelStyle}" />
+            
+            <DataGrid  Name="reports" Grid.Column="1" Grid.Row="10" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="None" Height="Auto" Width="102">
+                
+                <DataGrid.Columns>
+                    
+                    <DataGridTextColumn Header="firstname" Binding="{Binding Name}" MinWidth="100" IsReadOnly="True"/>
+                    
+                </DataGrid.Columns>
+                
+            </DataGrid>
+            
+
+            <!--
+            <Button Name="RemoveReportsButton" Content="Remove Employee" Style="{StaticResource buttonStyle}" Height="20" Command="Save" Margin="20,-30,0,0" Width="123" Grid.Row="10" Grid.Column="2">
+
+                <Button.CommandBindings>
+
+                    <CommandBinding Command="Save" 
+                              Executed="RemoveReport_Executed" CanExecute="RemoveReport_CanExecute"/>
+
+                </Button.CommandBindings>
+
+            </Button>
+
+-->
+            <!--
+            <Button Name="AddReportsButton" Content="Add Employee" Style="{StaticResource buttonStyle}" Height="20" Command="Save" Margin="20,-20,0,0" Width="123" Grid.Row="11" Grid.Column="2">
+                
+                <Button.CommandBindings>
+                    
+                    <CommandBinding Command="Save" 
+                              Executed="AddReport_Executed" CanExecute="AddReport_CanExecute"/>
+                        
+                </Button.CommandBindings>
+                
+            </Button>
+            -->
+            <ComboBox Name="EmpsComboBox" Grid.Column="2" Grid.Row="12" Style="{StaticResource comboBoxStyle}"
+                      Text="Select Employee" ItemsSource="{Binding empNames}" Margin="23,0,0,0"/>
         </Grid>
+    
         
-        <TextBox Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text = "{Binding BonusAmount, StringFormat = C}"/>
+        <TextBox Name="BonusInput" HorizontalAlignment="Right" Height="23" Margin="0,177,20.4,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120" Text = "{Binding BonusAmount, StringFormat = C, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
     </Grid>
 </Page>

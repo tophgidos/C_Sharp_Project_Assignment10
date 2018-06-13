@@ -72,7 +72,26 @@ namespace Employees
                 throw ex;
             }            
         }
+        public override bool CanAddReport(Employee emp)
+        {
+            // Check for proper report to Executive
+            if (emp is Manager || emp is SalesPerson)
+            {
+                if(!base.CanAddReport(emp))
+                {
+                    return false;
+                }
+                else
+                    return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
 
+        
         // Add Employee spare props
         public new static string SpareAddProp1Name() { return Manager.SpareAddProp1Name(); }
         public new static object SpareAddProp1DefaultValue() { return Manager.SpareAddProp1DefaultValue(); }
