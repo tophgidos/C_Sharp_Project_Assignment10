@@ -50,7 +50,7 @@ namespace Employees
                 SpareProp2Name.Content = name2;
                 SpareProp2Value.Content = value2;
 
-                /*if (!(emp is Manager))
+                if (!(emp is Manager))
                                     {
                     emp.SpareDetailProp2(ref name2, ref value2);
                     reports.Visibility = Visibility.Collapsed;
@@ -70,7 +70,7 @@ namespace Employees
                     reports.ItemsSource = (Manager)emp;
                     
                                         //set equal to employee list
-                                        EmployeeList empList1 = ;
+                                        /*EmployeeList empList1 = ;
 
                     foreach (Employee tempEmp in empList1)
                     {
@@ -79,23 +79,24 @@ namespace Employees
                             ValidEmps.Add(tempEmp);
                             empNames.Add(tempEmp.Name);
                         }
-                    }
+                    }*/
                     
                     EmpsComboBox.ItemsSource = empNames;
-                                    }*/
+                                    }
             }
         }
         #endregion
 
 
         #region Methods
-        /*private void RemoveReport_Executed(object sender, RoutedEventArgs e)
+        private void RemoveReport_Executed(object sender, RoutedEventArgs e)
         {
-            (Manager)emp).RemoveReport((Employee)reports.SelectedItem);
-            reports.Items.Refresh();
-        }*/
+            /*(Manager)emp).RemoveReport((Employee)reports.SelectedItem);
+            reports.Items.Refresh();*/
+        }
 
-        /*private void RemoveReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+
+        private void RemoveReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = reports.SelectedIndex >= 0;
         }
@@ -109,7 +110,7 @@ namespace Employees
         private void AddReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = EmpsComboBox.SelectedIndex >= 0;
-        }*/
+        }
 
         private void Bonus_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -155,10 +156,7 @@ namespace Employees
             SpareProp2Value.Content = value2;
         }
 
-        /*private void AddReport_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = EmpsComboBox.SelectedIndex >= 0;
-        }*/
+
         #endregion
 
 

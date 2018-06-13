@@ -120,7 +120,7 @@
             </DataGrid>
             
 
-            <!--
+            
             <Button Name="RemoveReportsButton" Content="Remove Employee" Style="{StaticResource buttonStyle}" Height="20" Command="Save" Margin="20,-30,0,0" Width="123" Grid.Row="10" Grid.Column="2">
 
                 <Button.CommandBindings>
@@ -131,9 +131,7 @@
                 </Button.CommandBindings>
 
             </Button>
-
--->
-            <!--
+            
             <Button Name="AddReportsButton" Content="Add Employee" Style="{StaticResource buttonStyle}" Height="20" Command="Save" Margin="20,-20,0,0" Width="123" Grid.Row="11" Grid.Column="2">
                 
                 <Button.CommandBindings>
@@ -144,7 +142,7 @@
                 </Button.CommandBindings>
                 
             </Button>
-            -->
+            
             <ComboBox Name="EmpsComboBox" Grid.Column="2" Grid.Row="12" Style="{StaticResource comboBoxStyle}"
                       Text="Select Employee" ItemsSource="{Binding empNames}" Margin="23,0,0,0"/>
         </Grid>
